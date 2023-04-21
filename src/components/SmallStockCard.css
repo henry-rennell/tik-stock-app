@@ -1,9 +1,12 @@
+
 .small-stock-card {
-    width: 60%;
+    width: 100%;
     background-color: black;
     height: 300px;
-    border: 2px inset white;
+    border: 2px solid grey;
+    border-radius: 25px;
     margin: auto;
+    padding: 1%;
 }
 
 .small-stock-card footer {
@@ -25,6 +28,14 @@
 
 .small-stock-card .price {
     color: white;
+}
+
+@media (max-width: 800px) {
+    .small-stock-card {
+        height: 100%;
+        width: 97%;
+        padding:2%;
+    }
 }
 
 

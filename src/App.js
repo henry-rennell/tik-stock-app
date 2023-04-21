@@ -9,7 +9,6 @@ function App() {
       <GetStocks />
       <SearchBar />
       <StockChart />
-      <GetStocks />
     </div>
   )
 }

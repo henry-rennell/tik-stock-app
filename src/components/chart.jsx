@@ -117,16 +117,6 @@ export default function StockChart(props) {
       <p>Current Price:{price}</p>
       <p>Stock Trading Time :{priceTime}</p>
       <p>Previous Closing Price :{stockInfo["chartPreviousClose"]}</p>
-      <p>
-        Stock Trading Period: start{" "}
-        {new Date(
-          stockInfo["currentTradingPeriod"]["regular"]["start"] * 1000
-        ).toLocaleTimeString()}{" "}
-        --- end{" "}
-        {new Date(
-          stockInfo["currentTradingPeriod"]["regular"]["end"] * 1000
-        ).toLocaleTimeString()}
-      </p>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import tickers from "../data/tickers"
 import SmallStockCard from "./SmallStockCard"
-
+import "./GetStocks.css"
 export default function GetStocks() {
     const [Tickers, setTickers] = useState([])
 
@@ -11,7 +11,6 @@ export default function GetStocks() {
                 setTickers(prevTickers => [...prevTickers, ticker])
             }
     }
-
     useEffect(() => {
         getInitialTickers()
     }, [])
@@ -21,13 +20,14 @@ export default function GetStocks() {
   }
 
   return (
-    <div className="stocks">
-      {Tickers.map(ticker => {
-        return <SmallStockCard ticker={ticker} isGreen={ticker.change > 0? true : false}  key={ticker.id}/>
-      })}
-      <button onClick={handleScrollDown}>click MEEE</button>
-
-    </div>
+    <section>
+      <div className="stocks">
+        {Tickers.map(ticker => {
+          return <SmallStockCard ticker={ticker} isGreen={ticker.change > 0? true : false}  key={ticker.id}/>
+        })}
+      </div>
+        <button onClick={handleScrollDown}>click MEEE</button>
+    </section>
   )
 }
 

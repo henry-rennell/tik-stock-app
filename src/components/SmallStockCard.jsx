@@ -1,4 +1,3 @@
-import { useState } from "react"
 import "./SmallStockCard.css"
 
 export default function SmallStockCard({ ticker, isGreen }) {

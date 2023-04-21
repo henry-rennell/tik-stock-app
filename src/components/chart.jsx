@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react"
 import Chart from "react-apexcharts"
 
-export default function StockChart() {
+export default function StockChart(props) {
+  const [price, setPrice] = useState(0)
+  const [priceTime, setPriceTime] = useState("")
+  const [stockInfo, setStockInfo] = useState([])
+  const [series, setSeries] = useState([
+    {
+      data: [],
+    },
+  ])
   const chart = {
     options: {
       chart: {
@@ -16,14 +24,12 @@ export default function StockChart() {
         type: "datetime",
       },
       yaxis: {
-        logBase: 0.5,
-        min: 165,
-        max: 170,
-        function(min) {
-          return 150
-        },
+        logBase: 0.1,
+        min: price * 0.95,
+        max: price * 1.05,
+
         tooltip: {
-          enabled: true,
+          enabled: false,
         },
       },
     },
@@ -32,24 +38,17 @@ export default function StockChart() {
   async function getStocks() {
     const proxyUrl = "https://cors-anywhere.herokuapp.com/"
     const response = await fetch(
-      `${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/aapl`
+      `${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${props.name}`
     ).then(res => res.json())
     return response
   }
 
-  const [price, setPrice] = useState(0)
-  const [priceTime, setPriceTime] = useState("")
-  const [series, setSeries] = useState([
-    {
-      data: [],
-    },
-  ])
   useEffect(() => {
     let timeoutId
     // function getPrice() {
     getStocks().then(data => {
-      // console.log(data["chart"]["result"][0]["meta"]["regularMarketPrice"])
-
+      console.log(data["chart"]["result"][0])
+      setStockInfo(data["chart"]["result"][0]["meta"])
       setPrice(data.chart.result[0].meta.regularMarketPrice.toFixed(2))
       setPriceTime(
         new Date(
@@ -81,9 +80,7 @@ export default function StockChart() {
         },
       ])
       // chart.series = series
-      console.log(
-        typeof new Date(data.chart.result[0].meta.regularMarketTime * 1000)
-      )
+
       // console.log(data["Weekly Time Series"]["2023-04-19"]["4. close"])
       //
 
@@ -92,7 +89,7 @@ export default function StockChart() {
       // }, 10000)
     })
     // }
-    console.log(priceTime)
+
     // timeoutId = setTimeout(() => {
     //   getPrice()
     // }, 10000)
@@ -101,6 +98,9 @@ export default function StockChart() {
     //   clearTimeout(timeoutId)
     // }
   }, [])
+
+  console.log(stockInfo)
+  console.log(priceTime)
   return (
     <div className="App">
       <Chart
@@ -111,8 +111,22 @@ export default function StockChart() {
         width={500}
         height={320}
       />
-      {price}
-      <p>{priceTime}</p>
+      <p>Stock Trading Symbol:{stockInfo["symbol"]}</p>
+      <p>Stock Exchange: {stockInfo["exchangeName"]}</p>
+      <p>Instrument Type: {stockInfo["instrumentType"]}</p>
+      <p>Current Price:{price}</p>
+      <p>Stock Trading Time :{priceTime}</p>
+      <p>Previous Closing Price :{stockInfo["chartPreviousClose"]}</p>
+      <p>
+        Stock Trading Period: start{" "}
+        {new Date(
+          stockInfo["currentTradingPeriod"]["regular"]["start"] * 1000
+        ).toLocaleTimeString()}{" "}
+        --- end{" "}
+        {new Date(
+          stockInfo["currentTradingPeriod"]["regular"]["end"] * 1000
+        ).toLocaleTimeString()}
+      </p>
     </div>
   )
 }

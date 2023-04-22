@@ -1,5 +1,5 @@
 import GetStocks from "./components/GetStocks"
-import StockChart from "./components/chart"
+import StockChart from "./components/Chart"
 import SearchBar from "./components/SearchBar"
 import "./App.css"
 

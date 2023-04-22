@@ -10,6 +10,20 @@ export default function StockChart(props) {
       data: [],
     },
   ])
+
+  async function getStocks() {
+    // const proxyUrl = "https://cors-anywhere.herokuapp.com/"
+    const response = await fetch(
+      `https://proxy.cors.sh/https://query1.finance.yahoo.com/v8/finance/chart/${props.name}`,
+      {
+        headers: {
+          "x-cors-api-key": "temp_9b9b92d25a6b1e8bad76565321cd83c8",
+        },
+      }
+    ).then(res => res.json())
+    return response
+  }
+
   const chart = {
     options: {
       chart: {
@@ -25,8 +39,16 @@ export default function StockChart(props) {
       },
       yaxis: {
         logBase: 0.1,
+        // min: price * 0.97,
+        // max: price * 1.02,
         min: price * 0.97,
-        max: price * 1.03,
+        max:
+          (Math.max.apply(
+            null,
+            series["0"].data.map(elem => Math.floor(Number(elem.y[0]) * 100))
+          ) /
+            100) *
+          1.01,
 
         tooltip: {
           enabled: false,
@@ -35,19 +57,11 @@ export default function StockChart(props) {
     },
   }
 
-  async function getStocks() {
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/"
-    const response = await fetch(
-      `${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${props.name}`
-    ).then(res => res.json())
-    return response
-  }
-
   useEffect(() => {
-    let timeoutId
+    // let timeoutId
     // function getPrice() {
     getStocks().then(data => {
-      console.log(data["chart"]["result"][0])
+      console.log(data["chart"])
       setStockInfo(data["chart"]["result"][0]["meta"])
       setPrice(data.chart.result[0].meta.regularMarketPrice.toFixed(2))
       setPriceTime(
@@ -98,9 +112,18 @@ export default function StockChart(props) {
     //   clearTimeout(timeoutId)
     // }
   }, [])
-
-  console.log(stockInfo)
-  console.log(priceTime)
+  // console.log(stockInfo)
+  console.log(
+    Math.min.apply(
+      null,
+      series["0"].data.map(elem => {
+        if (elem.y[0] !== null && elem.y[0] !== 0) {
+          return Math.floor(Number(elem.y[0]) * 100)
+        }
+      })
+    )
+  )
+  // console.log(Number(price) - Number(stockInfo["chartPreviousClose"]))
   return (
     <div className="App">
       <Chart
@@ -111,6 +134,25 @@ export default function StockChart(props) {
         width={500}
         height={220}
       />
+      <footer>
+        <span className="price">Price: {price}</span>
+        <span
+          className={
+            Number(price) - Number(stockInfo["chartPreviousClose"]) > 0
+              ? "green"
+              : "red"
+          }
+        >
+          Change: ${" "}
+          {(Number(price) - Number(stockInfo["chartPreviousClose"])).toFixed(
+            2
+          ) !== "NaN"
+            ? (Number(price) - Number(stockInfo["chartPreviousClose"])).toFixed(
+                2
+              )
+            : "Trading Halt"}
+        </span>
+      </footer>
       {/* <p>Stock Trading Symbol:{stockInfo["symbol"]}</p>
       <p>Stock Exchange: {stockInfo["exchangeName"]}</p>
       <p>Instrument Type: {stockInfo["instrumentType"]}</p>

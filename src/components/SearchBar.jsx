@@ -1,12 +1,14 @@
-import { useState, useEffect, useRef } from "react"
-
+import { useState, useEffect } from "react"
+import "./SearchBar.css"
 export default function SearchBar() {
   const [input, setInput] = useState("")
   const [loadStock, setLoadStock] = useState("")
   const [data, setData] = useState([])
+  const [error, setError] = useState(false)
 
   const handleChange = e => {
     setInput(e.target.value)
+    setError(false) // sets error message to false if you change edit the input box
   }
 
   const handleSubmit = e => {
@@ -27,12 +29,19 @@ export default function SearchBar() {
     )
       .then(res => res.json())
       .then(resData => {
-        // console.log(resData)
         setData(resData)
-        return resData
+        setError(false)
+        return resData // return is used to ensure resData will be synchronous
       })
       .then(res => console.log(res["Meta Data"]["2. Symbol"]))
-    // .then(res => setLoadStock(false))
+      .catch(e => {
+        if (input !== "") {
+          // prevents showing the message when the inputbox is empty
+          setError(true)
+        } else {
+          setError(false)
+        }
+      })
   }, [loadStock])
 
   return (
@@ -47,6 +56,9 @@ export default function SearchBar() {
         />
         <button>Search</button>
       </form>
+      <p className="error-msg">
+        {error ? `${input} isn't a valid ticker symbol, please try again` : ""}
+      </p>
     </div>
   )
 }

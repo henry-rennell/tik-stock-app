@@ -45,20 +45,22 @@ export default function SearchBar() {
   }, [loadStock])
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} action="">
+    <header className="header-wrapper">
+      <img src="/tikstock_logo.png" alt="" />
+      <form className="search-form" onSubmit={handleSubmit} action="">
         <label htmlFor=""></label>
         <input
+          className="inputbox"
           value={input}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           type="text"
         />
-        <button>Search</button>
+        <button className="search-btn">Search</button>
+        <p className="error-msg">
+          {error ? `${input} isn't a valid ticker symbol` : ""}
+        </p>
       </form>
-      <p className="error-msg">
-        {error ? `${input} isn't a valid ticker symbol, please try again` : ""}
-      </p>
-    </div>
+    </header>
   )
 }

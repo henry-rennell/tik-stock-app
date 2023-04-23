@@ -48,5 +48,6 @@
   "bugs": {
     "url": "https://github.com/TalesPinto/tik-stock-app/issues"
   },
-  "homepage": "./"
+  "homepage": "./",
+  "proxy": "https://finance.yahoo.com"
 }

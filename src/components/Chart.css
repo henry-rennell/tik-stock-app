@@ -1,0 +1,20 @@
+.small-stock-card footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.small-stock-card h3 {
+  color: white;
+}
+
+.small-stock-card .green {
+  color: green;
+}
+
+.small-stock-card .red {
+  color: red;
+}
+
+.small-stock-card .price {
+  color: white;
+}

@@ -63,7 +63,6 @@ export default function SearchBar() {
             className="inputbox"
             value={typeBox}
             onChange={handleChange}
-            // onKeyDown={handleKeyDown}
             type="text"
           />
           <button className="search-btn">Search</button>

@@ -34,12 +34,6 @@ export default function tickers() {
               "change": -0.02
            },
            {
-              "id": 6,
-              "symbol": "FB",
-              "price": 312.46,
-              "change": 0.84
-           },
-           {
               "id": 7,
               "symbol": "TSLA",
               "price": 719.69,
@@ -182,12 +176,6 @@ export default function tickers() {
             "symbol": "XOM",
             "price": 59.12,
             "change": -0.69
-         },
-         {
-            "id": 31,
-            "symbol": "CSCO",
-            "price": 49.87,
-            "change": 0.21
          },
          {
             "id": 32,
@@ -464,12 +452,6 @@ export default function tickers() {
             "symbol":"RY",
             "price":80.00,
             "change":-0.75
-         },
-         {
-            "id":79,
-            "symbol":"TOT",
-            "price":55.25,
-            "change":0.25
          },
          {
             "id":80,
@@ -808,18 +790,6 @@ export default function tickers() {
             "change": -0.38
         },
         {
-            "id": 139,
-            "symbol": "CBPO",
-            "price": 88.03,
-            "change": 2.97
-        },
-        {
-            "id": 140,
-            "symbol": "CCIV",
-            "price": 24.99,
-            "change": -1.43
-        }, 
-        {
             "id": 141,
             "symbol": "CCIV",
             "price": 10.23,
@@ -838,12 +808,6 @@ export default function tickers() {
             "change": -1.78
           },
           {
-            "id": 145,
-            "symbol": "CERS",
-            "price": 22.34,
-            "change": 0.45
-          },
-          {
             "id": 146,
             "symbol": "CHGG",
             "price": 9.87,
@@ -854,12 +818,6 @@ export default function tickers() {
             "symbol": "CHKP",
             "price": 14.56,
             "change": -0.89
-          },
-          {
-            "id": 148,
-            "symbol": "CHNG",
-            "price": 5.67,
-            "change": 0.12
           },
           {
             "id": 149,
@@ -878,12 +836,6 @@ export default function tickers() {
             "symbol": "CIO",
             "price": 18.56,
             "change": 0.34
-          },
-          {
-            "id": 152,
-            "symbol": "CLDR",
-            "price": 9.87,
-            "change": -0.56
           },
           {
             "id": 153,

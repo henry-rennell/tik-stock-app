@@ -1,0 +1,30 @@
+.Login {
+    background-color: lightgray;
+    width: 30%;
+    height: 50%;
+    margin: auto;
+    border: 2px solid black;
+    padding: 3%;
+}
+
+.Login form {
+    display: grid;
+    gap: 50px;
+    text-align: center;
+    font-size: 1.8em;
+    height: 100%;
+}
+
+.Login  input{
+    height: 30px;
+}
+
+.Login button {
+    height: 50px;
+}
+
+
+.Login img {
+    margin-left: 40%;
+    margin-bottom: 10%;
+}

@@ -21,10 +21,10 @@ function App() {
         </div>
       ) : (
         <div>
-          <p>Login as: {user}</p>
+          {/* <p>Login as: {user}</p> */}
           <SearchBar />
           <Portfolio
-            user={"Leon"}
+            user={user}
             portfolioArr={portfolioArr}
             setPortfolioArr={setPortfolioArr}
           />

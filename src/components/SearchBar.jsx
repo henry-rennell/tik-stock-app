@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import "./SearchBar.css"
-import StockChartDetail from "./chart_detail"
+import StockChartDetail from "./Chart_detail"
 import GetStocks from "./GetStocks"
 import { Link, useNavigate } from "react-router-dom"
 
@@ -12,26 +12,26 @@ export default function SearchBar() {
   const [error, setError] = useState(false)
   const [searchResult, setSearchResult] = useState("")
   const [isStockDetail, setIsStockDetail] = useState(false)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleChange = e => {
     setTypeBox(e.target.value)
-
   }
-
 
   const handleBackHome = () => {
     navigate(`/`)
   }
 
   const handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault()
     navigate(`/stocks/${typeBox}`)
+    setLoadStock(typeBox)
+    setTypeBox("")
   }
 
   useEffect(() => {
     fetch(
-      `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${input}&apikey=RWCORGXLMZDUAKMW`
+      `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${typeBox}&apikey=RWCORGXLMZDUAKMW`
     )
       .then(res => res.json())
       .then(resData => {

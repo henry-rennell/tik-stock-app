@@ -1,6 +1,6 @@
 import "./SmallStockCard.css"
 import StockChart from "./Chart"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function SmallStockCard({ ticker, isGreen }) {
   const navigate = useNavigate()

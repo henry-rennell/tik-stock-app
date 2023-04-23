@@ -412,12 +412,6 @@ export default function tickers() {
             "change":0.50
          },
          {
-            "id":69,
-            "symbol":"ANTM",
-            "price":350.75,
-            "change":-1.75
-         },
-         {
             "id":70,
             "symbol":"AXP",
             "price":130.00,
@@ -772,12 +766,6 @@ export default function tickers() {
             "change": -1.41
         },
         {
-            "id": 130,
-            "symbol": "BRKS",
-            "price": 87.35,
-            "change": 0.98
-        },
-        {
             "id": 131,
             "symbol": "BSX",
             "price": 45.09,
@@ -814,12 +802,6 @@ export default function tickers() {
             "change": -4.06
         },
         {
-            "id": 137,
-            "symbol": "CATM",
-            "price": 35.18,
-            "change": -1.22
-        },
-        {
             "id": 138,
             "symbol": "CB",
             "price": 204.39,
@@ -842,12 +824,6 @@ export default function tickers() {
             "symbol": "CCIV",
             "price": 10.23,
             "change": 1.23
-          },
-          {
-            "id": 142,
-            "symbol": "CDK",
-            "price": 7.89,
-            "change": -0.34
           },
           {
             "id": 143,
@@ -914,12 +890,6 @@ export default function tickers() {
             "symbol": "CLF",
             "price": 12.34,
             "change": 0.67
-          },
-          {
-            "id": 154,
-            "symbol": "CLGX",
-            "price": 15.67,
-            "change": -0.78
           },
           {
             "id": 155,

@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<GetStocks />} />
           <Route path="/stocks/:ticker" element={<StockChartDetail />} />
-        </Routes>s
+        </Routes>
     </div>
   )
 }

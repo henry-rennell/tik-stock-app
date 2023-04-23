@@ -1,5 +1,5 @@
 import "./SmallStockCard.css"
-import StockChart from "./Chart"
+import StockChart from "./chart"
 import { useNavigate } from "react-router-dom"
 
 export default function SmallStockCard({ ticker, isGreen }) {
@@ -11,7 +11,9 @@ export default function SmallStockCard({ ticker, isGreen }) {
 
   return (
     <div className="small-stock-card">
-      <h3 className="stock-symbol" onClick={handleClick}>{ticker.symbol}</h3>
+      <h3 className="stock-symbol" onClick={handleClick}>
+        {ticker.symbol}
+      </h3>
       <StockChart name={ticker.symbol} />
     </div>
   )

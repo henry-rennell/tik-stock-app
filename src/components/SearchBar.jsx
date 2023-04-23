@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import "./SearchBar.css"
-import StockChartDetail from "./Chart_detail"
+import StockChartDetail from "./chart_detail"
 import GetStocks from "./GetStocks"
 import { Link, useNavigate } from "react-router-dom"
 

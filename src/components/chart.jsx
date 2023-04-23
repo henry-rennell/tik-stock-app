@@ -41,7 +41,19 @@ export default function StockChart(props) {
         logBase: 0.1,
         // min: price * 0.97,
         // max: price * 1.02,
-        min: price * 0.97,
+        min:
+          (Math.min.apply(
+            null,
+            series["0"].data
+              .map(elem => {
+                if (Number(elem.y[3]) !== 0 && elem.y[3] !== null) {
+                  return Math.floor(Number(elem.y[3]) * 100)
+                }
+              })
+              .filter(elem => elem !== undefined)
+          ) /
+            100) *
+          0.99,
         max:
           (Math.max.apply(
             null,
@@ -67,7 +79,7 @@ export default function StockChart(props) {
       setPriceTime(
         new Date(
           data.chart.result[0].meta.regularMarketTime * 1000
-        ).toLocaleTimeString()
+        ).toTimeString()
       )
       const prices = data.chart.result[0].timestamp.map((time, index) => {
         return {
@@ -113,16 +125,7 @@ export default function StockChart(props) {
     // }
   }, [])
   // console.log(stockInfo)
-  console.log(
-    Math.min.apply(
-      null,
-      series["0"].data.map(elem => {
-        if (elem.y[0] !== null && elem.y[0] !== 0) {
-          return Math.floor(Number(elem.y[0]) * 100)
-        }
-      })
-    )
-  )
+  console.log()
   // console.log(Number(price) - Number(stockInfo["chartPreviousClose"]))
   return (
     <div className="App">

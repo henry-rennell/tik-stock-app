@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import Chart from "react-apexcharts"
+import { useParams } from "react-router-dom"
 
 export default function StockChartDetail({ name, setSearchResult }) {
-  console.log(`${name} is here`)
   const [price, setPrice] = useState(0)
   const [priceTime, setPriceTime] = useState("")
   const [stockInfo, setStockInfo] = useState([])
@@ -11,7 +11,8 @@ export default function StockChartDetail({ name, setSearchResult }) {
       data: [],
     },
   ])
-
+  const params = useParams()
+  name = params.ticker
   const chart = {
     options: {
       chart: {
@@ -148,3 +149,4 @@ export default function StockChartDetail({ name, setSearchResult }) {
     </div>
   )
 }
+

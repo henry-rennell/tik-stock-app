@@ -134,7 +134,7 @@ export default function StockChart(props) {
         // series={chart.series}
         series={series}
         type="candlestick"
-        width={500}
+        width={window.innerWidth < 500? (0.85 * window.innerWidth) : 450}
         height={220}
       />
       <footer>
@@ -156,12 +156,6 @@ export default function StockChart(props) {
             : "Trading Halt"}
         </span>
       </footer>
-      {/* <p>Stock Trading Symbol:{stockInfo["symbol"]}</p>
-      <p>Stock Exchange: {stockInfo["exchangeName"]}</p>
-      <p>Instrument Type: {stockInfo["instrumentType"]}</p>
-      <p>Current Price:{price}</p>
-      <p>Stock Trading Time :{priceTime}</p>
-      <p>Previous Closing Price :{stockInfo["chartPreviousClose"]}</p> */}
     </div>
   )
 }

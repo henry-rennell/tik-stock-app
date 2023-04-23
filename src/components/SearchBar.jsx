@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import "./SearchBar.css"
 import StockChartDetail from "./chart_detail"
 import GetStocks from "./GetStocks"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function SearchBar() {
   const [typeBox, setTypeBox] = useState("")
@@ -11,30 +12,22 @@ export default function SearchBar() {
   const [error, setError] = useState(false)
   const [searchResult, setSearchResult] = useState("")
   const [isStockDetail, setIsStockDetail] = useState(false)
+  const navigate = useNavigate();
 
   const handleChange = e => {
     setTypeBox(e.target.value)
-    // setError(false) // sets error message to false if you change edit the input box
+
+  }
+
+
+  const handleBackHome = () => {
+    navigate(`/`)
   }
 
   const handleSubmit = e => {
-    e.preventDefault()
-    // console.log(e["target"]["0"]["value"])
-
-    setLoadStock(e["target"]["0"]["value"])
-    setIsStockDetail(true)
-    setInput(e["target"]["0"]["value"])
+    e.preventDefault();
+    navigate(`/stocks/${typeBox}`)
   }
-
-  const handleBackHome = e => {
-    setIsStockDetail(false)
-  }
-
-  // const handleKeyDown = event => {
-  //   if (event.key === "Enter") {
-  //     setLoadStock(input)
-  //   }
-  // }
 
   useEffect(() => {
     fetch(
@@ -63,7 +56,7 @@ export default function SearchBar() {
   return (
     <div>
       <header className="header-wrapper">
-        <img src="/tikstock_logo.png" alt="" />
+        <img src="/tikstock_logo.png" alt="" onClick={handleBackHome} />
         <form className="search-form" onSubmit={handleSubmit}>
           <label htmlFor=""></label>
           <input
@@ -79,25 +72,7 @@ export default function SearchBar() {
             {error ? `${input} isn't a valid ticker symbol` : ""}
           </p>
         </form>
-        <button
-          className="return-home"
-          style={
-            isStockDetail ? { display: "inline-block" } : { display: "none" }
-          }
-          onClick={handleBackHome}
-        >
-          return homepage
-        </button>
       </header>
-      {isStockDetail ? (
-        <div>
-          <StockChartDetail name={input} setSearchResult={setSearchResult} />
-        </div>
-      ) : (
-        <div>
-          <GetStocks />
-        </div>
-      )}
     </div>
   )
 }

@@ -30,6 +30,11 @@
     color: white;
 }
 
+.small-stock-card h3 {
+    cursor: pointer;
+
+}
+
 @media (max-width: 800px) {
     .small-stock-card {
         height: 100%;

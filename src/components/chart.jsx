@@ -134,7 +134,7 @@ export default function StockChart(props) {
         // series={chart.series}
         series={series}
         type="candlestick"
-        width={window.innerWidth < 500? (0.85 * window.innerWidth) : 450}
+        width={window.innerWidth < 500 ? 0.85 * window.innerWidth : 450}
         height={220}
       />
       <footer>

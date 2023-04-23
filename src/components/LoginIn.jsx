@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { users } from "../data/users"
-
+import "./LoginIn.css"
 export default function LoginIn(props) {
   const [message, setMessage] = useState("")
 
@@ -19,15 +19,18 @@ export default function LoginIn(props) {
     // props.setUser()
   }
   return (
-    <div>
+    <section>
+    <div className="Login">
+    <img src="/tikstock_logo.png" alt="" className="logo"/>
       <form onSubmit={handleSubmit} action="">
-        <label htmlFor="">username</label>
+        <label htmlFor="">Username:</label>
         <input type="text" name="username" />
-        <label htmlFor="">password</label>
+        <label htmlFor="">Password:</label>
         <input type="password" />
         <button>login</button>
         <p>{message}</p>
       </form>
     </div>
+    </section>
   )
 }

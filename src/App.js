@@ -29,7 +29,15 @@ function App() {
             setPortfolioArr={setPortfolioArr}
           />
           <Routes>
-            <Route path="/" element={<GetStocks />} />
+            <Route
+              path="/"
+              element={
+                <GetStocks
+                  portfolioArr={portfolioArr}
+                  setPortfolioArr={setPortfolioArr}
+                />
+              }
+            />
             <Route path="/stocks/:ticker" element={<StockChartDetail />} />
           </Routes>
         </div>

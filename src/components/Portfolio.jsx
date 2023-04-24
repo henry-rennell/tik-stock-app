@@ -11,8 +11,9 @@ export default function Portfolio({ user, portfolioArr, setPortfolioArr }) {
     }
   })
   console.log(portfolioIndex)
-
-  setPortfolioArr(users[portfolioIndex]["portfolio"])
+  if (portfolioArr.length === 0) {
+    setPortfolioArr(users[portfolioIndex]["portfolio"])
+  }
 
   //   async function getStocksPrice(stock) {
   //     // const proxyUrl = "https://cors-anywhere.herokuapp.com/"

@@ -17,9 +17,9 @@ export default function StockChartDetail({ name, setSearchResult }) {
   function handleResize (){
     let windowWidth = window.innerWidth
     if(windowWidth < 500) {
-      setGraphWidth(0.6 * windowWidth)
+      setGraphWidth(0.75 * windowWidth)
     } else {
-      setGraphWidth(0.4 * windowWidth)
+      setGraphWidth(0.65 * windowWidth)
     }
   }
 
@@ -88,7 +88,6 @@ export default function StockChartDetail({ name, setSearchResult }) {
   }
 
   useEffect(() => {
-    let timeoutId
     // function getPrice() {
     getStocks().then(data => {
       // console.log(data["chart"]["result"][0])
@@ -129,20 +128,23 @@ export default function StockChartDetail({ name, setSearchResult }) {
   }, [name])
   return (
     <div className="stock-details">
-      <Chart
-        options={chart.options}
-        series={series}
-        type="candlestick"
-        width={graphWidth}
-        height={220}
-      />
+      <h2>{stockInfo["symbol"]}</h2>
+      <section className="graph">
+        <Chart
+          options={chart.options}
+          series={series}
+          type="candlestick"
+          width={graphWidth}
+          height={400}
+        />
+      </section>
       <section className="information">
-      <p>Stock Trading Symbol: {stockInfo["symbol"]}</p>
-      <p>Stock Exchange: {stockInfo["exchangeName"]}</p>
-      <p>Instrument Type: {stockInfo["instrumentType"]}</p>
-      <p>Current Price: ${price}</p>
-      <p>Stock Trading Time: {priceTime}</p>
-      <p>Previous Closing Price : ${stockInfo["chartPreviousClose"]}</p>
+      <p><span>Stock Trading Symbol:</span> {stockInfo["symbol"]}</p>
+      <p><span>Stock Exchange:</span> {stockInfo["exchangeName"]}</p>
+      <p><span>Instrument Type:</span> {stockInfo["instrumentType"]}</p>
+      <p><span>Current Price:</span> ${price}</p>
+      <p><span>Stock Trading Time:</span> {priceTime}</p>
+      <p><span>Previous Closing Price:</span> ${stockInfo["chartPreviousClose"]}</p>
       </section>
     </div>
   )

@@ -1,5 +1,4 @@
 import GetStocks from "./components/GetStocks"
-import StockChart from "./components/Chart"
 import SearchBar from "./components/SearchBar"
 import { Routes, Route } from "react-router-dom"
 import "./App.css"

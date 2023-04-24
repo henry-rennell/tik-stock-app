@@ -1,0 +1,11 @@
+.portfolio-bar {
+    background-color: lightgray;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    border-radius: 25px;
+    margin:2% auto 2% auto ;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-around;
+}

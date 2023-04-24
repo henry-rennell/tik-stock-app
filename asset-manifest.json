@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/tik-stock-app/static/css/main.d2116ced.css",
-    "main.js": "/tik-stock-app/static/js/main.3e9db490.js",
+    "main.js": "/tik-stock-app/static/js/main.7db4bfea.js",
+    "static/media/tikstock_logo.png": "/tik-stock-app/static/media/tikstock_logo.37e43855e1585cc0f2d2.png",
     "index.html": "/tik-stock-app/index.html",
     "main.d2116ced.css.map": "/tik-stock-app/static/css/main.d2116ced.css.map",
-    "main.3e9db490.js.map": "/tik-stock-app/static/js/main.3e9db490.js.map"
+    "main.7db4bfea.js.map": "/tik-stock-app/static/js/main.7db4bfea.js.map"
   },
   "entrypoints": [
     "static/css/main.d2116ced.css",
-    "static/js/main.3e9db490.js"
+    "static/js/main.7db4bfea.js"
   ]
 }

@@ -1,13 +1,14 @@
 import { users } from "../data/users"
+import { Link } from "react-router-dom"
 import "./Portfolio.css"
 export default function Portfolio({ user, portfolioArr, setPortfolioArr }) {
   let userNameArr = users.map(elem => elem.userName)
+
 
   let portfolioIndex
   userNameArr.forEach(elem => {
     if (elem === user) {
       portfolioIndex = userNameArr.indexOf(elem)
-      console.log(elem)
     }
   })
 
@@ -21,10 +22,7 @@ export default function Portfolio({ user, portfolioArr, setPortfolioArr }) {
       <span>The User's Current Portfolio:</span> 
       {portfolioArr.map(elem => {
         return (
-          <span>
-            {elem.toUpperCase()}
-            &nbsp; &nbsp;
-          </span>
+          <span><Link style={{ textDecoration: 'none' }} to={"/stocks/" + elem.toUpperCase()}>{elem.toUpperCase()}&nbsp; &nbsp;</Link></span>
         )
       })}
     </div>

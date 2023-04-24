@@ -8,6 +8,7 @@ import { useState } from "react"
 import LoginIn from "./components/LoginIn"
 import { users } from "./data/users"
 import Portfolio from "./components/Portfolio"
+import Footer from "./components/Footer"
 
 function App() {
   const [user, setUser] = useState(null)
@@ -34,6 +35,7 @@ function App() {
           </Routes>
         </div>
       )}
+      <Footer />
     </div>
   )
 }

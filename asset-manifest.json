@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tik-stock-app/static/css/main.d2116ced.css",
+    "main.js": "/tik-stock-app/static/js/main.3e9db490.js",
+    "index.html": "/tik-stock-app/index.html",
+    "main.d2116ced.css.map": "/tik-stock-app/static/css/main.d2116ced.css.map",
+    "main.3e9db490.js.map": "/tik-stock-app/static/js/main.3e9db490.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2116ced.css",
+    "static/js/main.3e9db490.js"
+  ]
+}

@@ -1,9 +1,10 @@
 import "./Footer.css"
+import img from "../tikstock_logo.png"
 export default function Footer() {
   return (
     <div className="footer">
       <section className="copyrights">
-        <img src="/tikstock_logo.png" alt="" />
+        <img src={img} alt="" />
         <p>&copy; 2023 All the rights reserved to tikStock inc.</p>
       </section>
 

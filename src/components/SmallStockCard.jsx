@@ -1,5 +1,5 @@
 import "./SmallStockCard.css"
-import StockChart from "./chart"
+import StockChart from "./Chart"
 import { useNavigate } from "react-router-dom"
 
 export default function SmallStockCard({ ticker, setPortfolioArr }) {

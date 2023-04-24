@@ -36,6 +36,7 @@ export default function StockChartDetail({ name, setSearchResult }) {
       chart: {
         type: "candlestick",
         height: 350,
+        foreColor: "#FFFFFF"
       },
       title: {
         text: "CandleStick Chart",

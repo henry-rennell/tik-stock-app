@@ -45,6 +45,7 @@ export default function StockChart(props) {
       chart: {
         type: "candlestick",
         height: 350,
+        foreColor: '#FFFFFF'
       },
       title: {
         text: "CandleStick Chart",

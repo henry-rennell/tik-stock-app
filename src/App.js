@@ -1,8 +1,4 @@
 import GetStocks from "./components/GetStocks"
-<<<<<<< HEAD
-=======
-import StockChart from "./components/chart"
->>>>>>> 6472151 (dummy changes)
 import SearchBar from "./components/SearchBar"
 import { Routes, Route } from "react-router-dom"
 import "./App.css"

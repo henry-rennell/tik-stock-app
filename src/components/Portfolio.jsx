@@ -7,11 +7,13 @@ export default function Portfolio({ user, portfolioArr, setPortfolioArr }) {
   userNameArr.forEach(elem => {
     if (elem === user) {
       portfolioIndex = userNameArr.indexOf(elem)
+      console.log(elem)
     }
   })
   console.log(portfolioIndex)
-
-  setPortfolioArr(users[portfolioIndex]["portfolio"])
+  if (portfolioArr.length === 0) {
+    setPortfolioArr(users[portfolioIndex]["portfolio"])
+  }
 
   //   async function getStocksPrice(stock) {
   //     // const proxyUrl = "https://cors-anywhere.herokuapp.com/"

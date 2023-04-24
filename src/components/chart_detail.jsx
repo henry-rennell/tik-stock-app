@@ -105,47 +105,25 @@ export default function StockChartDetail({ name, setSearchResult }) {
           data: prices,
         },
       ])
-      // setSearchResult("")
 
-      // chart.series = series
-
-      // console.log(data["Weekly Time Series"]["2023-04-19"]["4. close"])
-      //
-
-      // timeoutId = setTimeout(() => {
-      //   getPrice()
-      // }, 10000)
     })
-    // }
-
-    // timeoutId = setTimeout(() => {
-    //   getPrice()
-    // }, 10000)
-
-    // return () => {
-    //   clearTimeout(timeoutId)
-    // }
+ 
   }, [name])
-
-  // console.log(stockInfo)
-  // console.log(priceTime)
-
   return (
     <div className="App">
       <Chart
         options={chart.options}
-        // series={chart.series}
         series={series}
         type="candlestick"
         width={500}
         height={220}
       />
-      <p>Stock Trading Symbol:{stockInfo["symbol"]}</p>
+      <p>Stock Trading Symbol: {stockInfo["symbol"]}</p>
       <p>Stock Exchange: {stockInfo["exchangeName"]}</p>
       <p>Instrument Type: {stockInfo["instrumentType"]}</p>
-      <p>Current Price:{price}</p>
-      <p>Stock Trading Time :{priceTime}</p>
-      <p>Previous Closing Price :{stockInfo["chartPreviousClose"]}</p>
+      <p>Current Price: ${price}</p>
+      <p>Stock Trading Time: {priceTime}</p>
+      <p>Previous Closing Price : ${stockInfo["chartPreviousClose"]}</p>
     </div>
   )
 }

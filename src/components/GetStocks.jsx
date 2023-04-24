@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import tickers from "../data/tickers"
 import SmallStockCard from "./SmallStockCard"
 import "./GetStocks.css"
-export default function GetStocks() {
-    const [Tickers, setTickers] = useState([])
+export default function GetStocks({ setPortfolioArr }) {
+  const [Tickers, setTickers] = useState([])
 
     const getInitialTickers = () => {
             for(let i = 0; i <= 3; i++) {
@@ -11,23 +11,30 @@ export default function GetStocks() {
                 setTickers(prevTickers => [...prevTickers, ticker])
             }
     }
-    useEffect(() => {
-        getInitialTickers()
-    }, [])
+  }
+  useEffect(() => {
+    getInitialTickers()
+  }, [])
 
   const handleScrollDown = () => {
-    getInitialTickers();
+    getInitialTickers()
   }
 
   return (
     <section>
       <div className="stocks">
         {Tickers.map(ticker => {
-          return <SmallStockCard ticker={ticker} isGreen={ticker.change > 0? true : false}  key={ticker.id}/>
+          return (
+            <SmallStockCard
+              ticker={ticker}
+              setPortfolioArr={setPortfolioArr}
+              isGreen={ticker.change > 0 ? true : false}
+              key={ticker.id}
+            />
+          )
         })}
       </div>
-        <button onClick={handleScrollDown}>click MEEE</button>
+      <button onClick={handleScrollDown}>click MEEE</button>
     </section>
   )
 }
-

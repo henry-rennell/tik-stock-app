@@ -3,6 +3,9 @@ import "./SearchBar.css"
 import { useNavigate } from "react-router-dom"
 import img from "../tikstock_logo.png"
 
+import StockChartDetail from "./chart_detail"
+import GetStocks from "./GetStocks"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function SearchBar() {
   const [typeBox, setTypeBox] = useState("")
@@ -12,7 +15,7 @@ export default function SearchBar() {
 
   const handleChange = e => {
     setTypeBox(e.target.value)
-    if(error && typeBox !== '') {
+    if (error && typeBox !== "") {
       setError(false)
     }
   }

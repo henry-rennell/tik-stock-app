@@ -1,8 +1,12 @@
 import GetStocks from "./components/GetStocks"
+<<<<<<< HEAD
+=======
+import StockChart from "./components/chart"
+>>>>>>> 6472151 (dummy changes)
 import SearchBar from "./components/SearchBar"
 import { Routes, Route } from "react-router-dom"
 import "./App.css"
-import StockChartDetail from "./components/Chart_detail"
+import StockChartDetail from "./components/chart_detail"
 import { useState } from "react"
 import LoginIn from "./components/LoginIn"
 import { users } from "./data/users"

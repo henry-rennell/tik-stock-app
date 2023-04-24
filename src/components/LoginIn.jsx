@@ -15,8 +15,6 @@ export default function LoginIn(props) {
       setMessage("wrong username or password, please type in again")
     }
 
-    // props.setUser(e.target[0].value)
-    // props.setUser()
   }
   return (
     <section>

@@ -10,6 +10,22 @@ export default function StockChart(props) {
       data: [],
     },
   ])
+  const [graphWidth, setGraphWidth] = useState(0.4 * window.innerWidth)
+
+  function handleResize() {
+    let width = window.innerWidth;
+    if(width < 500) {
+      setGraphWidth(0.8 * width)
+    } else {
+      setGraphWidth(0.4* width)
+    }
+  }
+
+  useEffect(() => {
+    handleResize()
+  }, [])
+
+  window.addEventListener('resize', handleResize)
 
   async function getStocks() {
     // const proxyUrl = "https://cors-anywhere.herokuapp.com/"
@@ -39,8 +55,6 @@ export default function StockChart(props) {
       },
       yaxis: {
         logBase: 0.1,
-        // min: price * 0.97,
-        // max: price * 1.02,
         min:
           (Math.min.apply(
             null,
@@ -134,11 +148,7 @@ export default function StockChart(props) {
         // series={chart.series}
         series={series}
         type="candlestick"
-        width={
-          window.innerWidth < 500
-            ? 0.85 * window.innerWidth
-            : 0.4 * window.innerWidth
-        }
+        width={graphWidth}
         height={220}
       />
       <footer>

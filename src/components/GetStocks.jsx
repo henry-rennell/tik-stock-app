@@ -11,7 +11,7 @@ export default function GetStocks({ setPortfolioArr }) {
                 setTickers(prevTickers => [...prevTickers, ticker])
             }
     }
-  }
+
   useEffect(() => {
     getInitialTickers()
   }, [])

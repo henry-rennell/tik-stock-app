@@ -783,12 +783,6 @@ export default function tickers() {
             "price": 204.39,
             "change": -0.38
         },
-        {
-            "id": 141,
-            "symbol": "CCIV",
-            "price": 10.23,
-            "change": 1.23
-          },
           {
             "id": 143,
             "symbol": "CDNS",

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Chart from "react-apexcharts"
 import { useParams } from "react-router-dom"
+import "./Chart_details.css"
 
 export default function StockChartDetail({ name, setSearchResult }) {
   const [price, setPrice] = useState(0)
@@ -11,6 +12,23 @@ export default function StockChartDetail({ name, setSearchResult }) {
       data: [],
     },
   ])
+  const [graphWidth, setGraphWidth] = useState((0.4 * window.innerWidth))
+
+  function handleResize (){
+    let windowWidth = window.innerWidth
+    if(windowWidth < 500) {
+      setGraphWidth(0.6 * windowWidth)
+    } else {
+      setGraphWidth(0.4 * windowWidth)
+    }
+  }
+
+  useEffect(() => {
+    handleResize()
+  }, [])
+
+  window.addEventListener('resize', handleResize)
+
   const params = useParams()
   name = params.ticker
   const chart = {
@@ -110,20 +128,22 @@ export default function StockChartDetail({ name, setSearchResult }) {
  
   }, [name])
   return (
-    <div className="App">
+    <div className="stock-details">
       <Chart
         options={chart.options}
         series={series}
         type="candlestick"
-        width={500}
+        width={graphWidth}
         height={220}
       />
+      <section className="information">
       <p>Stock Trading Symbol: {stockInfo["symbol"]}</p>
       <p>Stock Exchange: {stockInfo["exchangeName"]}</p>
       <p>Instrument Type: {stockInfo["instrumentType"]}</p>
       <p>Current Price: ${price}</p>
       <p>Stock Trading Time: {priceTime}</p>
       <p>Previous Closing Price : ${stockInfo["chartPreviousClose"]}</p>
+      </section>
     </div>
   )
 }

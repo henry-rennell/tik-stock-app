@@ -1,0 +1,10 @@
+.stock-details {
+    background-color: black;
+    width: 80%;
+
+    color: white;
+}
+
+.stock-details .information {
+    text-align: center;
+}

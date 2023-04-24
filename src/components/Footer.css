@@ -1,0 +1,42 @@
+.footer {
+  background-color: lightgray;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 10px;
+}
+
+.copyrights {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+}
+
+.copyrights > p {
+  align-self: center;
+  padding-left: 10px;
+  font-size: 0.6em;
+}
+.copyrights > img {
+  align-self: center;
+  height: 65px;
+  width: 50px;
+}
+
+.socials {
+  justify-self: end;
+  font-size: 0.6em;
+}
+
+.socials-images {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.socials-images > img {
+  color: #041a26;
+  height: 1.7em;
+  width: 1.7em;
+}

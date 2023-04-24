@@ -6,7 +6,7 @@ export default function GetStocks() {
     const [Tickers, setTickers] = useState([])
 
     const getInitialTickers = () => {
-            for(let i = 0; i <= 5; i++) {
+            for(let i = 0; i <= 3; i++) {
                 let ticker = tickers();
                 setTickers(prevTickers => [...prevTickers, ticker])
             }

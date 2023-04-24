@@ -84,9 +84,9 @@ footer {
   background-color: #43677a;
 }
 
-@media (max-width: 560px) {
+/* @media (max-width: 560px) {
   .header-wrapper {
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
   }
-}
+} */

@@ -1,3 +1,13 @@
 * {
   box-sizing: border-box;
 }
+
+@media (min-width: 300px) {
+  .App {
+    width: 95%;
+  }
+}
+
+.App {
+  margin: auto;
+}

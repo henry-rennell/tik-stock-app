@@ -196,12 +196,6 @@ export default function tickers() {
             "change": -0.79
          },
          {
-            "id": 35,
-            "symbol": "ABT",
-            "price": 125.16,
-            "change": 0.45
-         },
-         {
             "id": 36,
             "symbol": "IBM",
             "price": 135.34,
@@ -818,12 +812,6 @@ export default function tickers() {
             "symbol": "CHKP",
             "price": 14.56,
             "change": -0.89
-          },
-          {
-            "id": 149,
-            "symbol": "CHRW",
-            "price": 23.45,
-            "change": -1.23
           },
           {
             "id": 150,

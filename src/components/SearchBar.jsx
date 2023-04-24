@@ -1,21 +1,18 @@
 import { useState, useEffect } from "react"
 import "./SearchBar.css"
-import StockChartDetail from "./Chart_detail"
-import GetStocks from "./GetStocks"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function SearchBar() {
   const [typeBox, setTypeBox] = useState("")
-  let [input, setInput] = useState("")
   const [loadStock, setLoadStock] = useState("")
-  const [data, setData] = useState([])
   const [error, setError] = useState(false)
-  const [searchResult, setSearchResult] = useState("")
-  const [isStockDetail, setIsStockDetail] = useState(false)
   const navigate = useNavigate()
 
   const handleChange = e => {
     setTypeBox(e.target.value)
+    if(error && typeBox !== '') {
+      setError(false)
+    }
   }
 
   const handleBackHome = () => {
@@ -24,9 +21,7 @@ export default function SearchBar() {
 
   const handleSubmit = e => {
     e.preventDefault()
-    navigate(`/stocks/${typeBox}`)
     setLoadStock(typeBox)
-    setTypeBox("")
   }
 
   useEffect(() => {
@@ -35,16 +30,15 @@ export default function SearchBar() {
     )
       .then(res => res.json())
       .then(resData => {
-        // console.log(resData)
-        // setData(resData)
-
         setError(false)
-        setInput(resData["Meta Data"]["2. Symbol"])
+        setTypeBox(resData["Meta Data"]["2. Symbol"])
         // return resData // return is used to ensure resData will be synchronous
       })
-      // .then(res => )
+      .then(res => {
+        navigate(`/stocks/${typeBox}`)
+      })
       .catch(e => {
-        if (input !== "") {
+        if (typeBox !== "") {
           // prevents showing the message when the inputbox is empty
           setError(true)
         } else {
@@ -68,7 +62,7 @@ export default function SearchBar() {
           <button className="search-btn">Search</button>
 
           <p className="error-msg">
-            {error ? `${input} isn't a valid ticker symbol` : ""}
+            {error ? `${typeBox} isn't a valid ticker symbol` : ""}
           </p>
         </form>
       </header>

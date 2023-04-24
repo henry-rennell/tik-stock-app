@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { users } from "../data/users"
 import "./LoginIn.css"
+import img from "../tikstock_logo.png"
 export default function LoginIn(props) {
   const [message, setMessage] = useState("")
 
@@ -19,7 +20,7 @@ export default function LoginIn(props) {
   return (
     <section>
     <div className="Login">
-    <img src="/tikstock_logo.png" alt="" className="logo"/>
+    <img src={img} alt="" className="logo"/>
       <form onSubmit={handleSubmit} action="">
         <label htmlFor="">Username:</label>
         <input type="text" name="username" />

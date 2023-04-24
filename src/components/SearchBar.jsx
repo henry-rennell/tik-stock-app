@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import "./SearchBar.css"
 import { useNavigate } from "react-router-dom"
+import img from "../tikstock_logo.png"
+
 
 export default function SearchBar() {
   const [typeBox, setTypeBox] = useState("")
@@ -50,7 +52,7 @@ export default function SearchBar() {
   return (
     <div>
       <header className="header-wrapper">
-        <img src="/tikstock_logo.png" alt="" onClick={handleBackHome} />
+        <img src={img} alt="" onClick={handleBackHome} />
         <form className="search-form" onSubmit={handleSubmit}>
           <label htmlFor=""></label>
           <input

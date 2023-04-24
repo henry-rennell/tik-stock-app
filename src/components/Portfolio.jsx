@@ -7,6 +7,7 @@ export default function Portfolio({ user, portfolioArr, setPortfolioArr }) {
   userNameArr.forEach(elem => {
     if (elem === user) {
       portfolioIndex = userNameArr.indexOf(elem)
+      console.log(elem)
     }
   })
   console.log(portfolioIndex)

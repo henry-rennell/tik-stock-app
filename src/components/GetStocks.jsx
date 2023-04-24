@@ -13,7 +13,7 @@ export default function GetStocks({ setPortfolioArr }) {
     }
 
   useEffect(() => {
-    getInitialTickers()
+    getInitialTickers();
   }, [])
 
   const handleScrollDown = () => {

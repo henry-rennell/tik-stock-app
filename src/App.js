@@ -25,7 +25,6 @@ function App() {
         </div>
       ) : (
         <div>
-          {/* <p>Login as: {user}</p> */}
           <SearchBar />
           <Portfolio
             user={user}

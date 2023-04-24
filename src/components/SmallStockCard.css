@@ -7,6 +7,7 @@
     border-radius: 25px;
     margin: auto;
     padding: 1%;
+    padding-bottom: 2%;
 }
 
 .small-stock-card footer {
@@ -27,7 +28,7 @@
 }
 
 .small-stock-card .price {
-    color: white;
+    color: black;
 }
 
 .small-stock-card h3 {
@@ -42,5 +43,6 @@
         padding:2%;
     }
 }
+
 
 

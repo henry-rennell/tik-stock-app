@@ -34,7 +34,7 @@ export default function GetStocks({ setPortfolioArr }) {
           )
         })}
       </div>
-      <button onClick={handleScrollDown}>click MEEE</button>
+      <button onClick={handleScrollDown}>Click For More Recommendation </button>
     </section>
   )
 }
